@@ -17,16 +17,17 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('currency_id');
+            $table->string('from');
             $table->float('ammount');
             $table->float('rate');
-            $table->foreignId('target_currency');
+            $table->string('to');
             $table->float('price');
-            $table->string('status', 100);
+            $table->string('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('currency_id')->references('id')->on('currencies');
-            $table->foreign('target_currency')->references('id')->on('currencies');
+            //$table->foreign('target_currency')->references('id')->on('currencies');
         });
     }
 
